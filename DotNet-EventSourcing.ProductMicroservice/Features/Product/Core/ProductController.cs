@@ -1,4 +1,5 @@
 ﻿using DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
+using DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,13 @@ namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.Core
 
         [HttpPost("CreateProduct")]
         public async Task<IActionResult> CreateProductAsync(CreateProductCommand command, CancellationToken cs)
+        {
+            var result = await _sender.Send(command, cs);
+            return Ok(result);
+        }
+
+        [HttpPut("UpdateBlog")]
+        public async Task<IActionResult> UpdateBlogAsync(UpdateProductCommand command, CancellationToken cs)
         {
             var result = await _sender.Send(command, cs);
             return Ok(result);

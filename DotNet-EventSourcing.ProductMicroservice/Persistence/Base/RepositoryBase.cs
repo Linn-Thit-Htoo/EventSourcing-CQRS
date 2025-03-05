@@ -1,6 +1,7 @@
 ﻿using DotNet_EventSourcing.ProductMicroservice.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.Storage;
 using System.Linq.Expressions;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Persistence.Base
@@ -99,6 +100,11 @@ namespace DotNet_EventSourcing.ProductMicroservice.Persistence.Base
         public async Task SaveChangesAsync(CancellationToken cs = default)
         {
             await _context.SaveChangesAsync(cs);
+        }
+
+        public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cs = default)
+        {
+            return await _context.Database.BeginTransactionAsync(cs);
         }
     }
 }
