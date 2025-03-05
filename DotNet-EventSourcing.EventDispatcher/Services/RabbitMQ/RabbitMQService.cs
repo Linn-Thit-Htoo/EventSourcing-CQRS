@@ -75,54 +75,65 @@ namespace DotNet_EventSourcing.EventDispatcher.Services.RabbitMQ
         {
             var scope = _serviceScopeFactory.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-            var eventStream = await dbContext.TblEventStreams
-                .Where(x => x.StreamId == @event.StreamId)
-                .SingleOrDefaultAsync();
+            var transaction = await dbContext.Database.BeginTransactionAsync();
 
-            if (eventStream is null)
+            try
             {
-                TblEventStream tblEventStream = new TblEventStream()
+                var eventStream = await dbContext.TblEventStreams
+                    .Where(x => x.StreamId == @event.StreamId)
+                    .SingleOrDefaultAsync();
+
+                if (eventStream is null)
                 {
-                    StreamId = @event.StreamId,
-                    AggregateType = @event.AggregateType,
-                    CreatedAt = DateTime.Now,
-                };
-                await dbContext.TblEventStreams.AddAsync(tblEventStream);
+                    TblEventStream tblEventStream = new TblEventStream()
+                    {
+                        StreamId = @event.StreamId,
+                        AggregateType = @event.AggregateType,
+                        CreatedAt = DateTime.Now,
+                    };
+                    await dbContext.TblEventStreams.AddAsync(tblEventStream);
+                }
+
+                var latestVersionEvent = await dbContext.TblEvents
+                    .OrderByDescending(x => x.Version)
+                    .FirstOrDefaultAsync();
+                TblEvent tblEvent = new TblEvent();
+
+                if (latestVersionEvent is null)
+                {
+                    tblEvent = new TblEvent()
+                    {
+                        StreamId = @event.StreamId,
+                        Version = 1,
+                        CreatedAt = DateTime.Now,
+                        EventData = @event.EventData,
+                        EventId = Guid.NewGuid(),
+                        EventType = @event.EventType,
+                    };
+                    await dbContext.TblEvents.AddAsync(tblEvent);
+                }
+                else
+                {
+                    tblEvent = new TblEvent()
+                    {
+                        StreamId = @event.StreamId,
+                        Version = latestVersionEvent.Version + 1,
+                        CreatedAt = DateTime.Now,
+                        EventData = @event.EventData,
+                        EventId = Guid.NewGuid(),
+                        EventType = @event.EventType,
+                    };
+                    await dbContext.TblEvents.AddAsync(tblEvent);
+                }
+
+                await dbContext.SaveChangesAsync();
+                await transaction.CommitAsync();
             }
-
-            var latestVersionEvent = await dbContext.TblEvents
-                .OrderByDescending(x => x.Version)
-                .FirstOrDefaultAsync();
-            TblEvent tblEvent = new TblEvent();
-
-            if (latestVersionEvent is null)
+            catch (Exception ex)
             {
-                tblEvent = new TblEvent()
-                {
-                    StreamId = @event.StreamId,
-                    Version = 1,
-                    CreatedAt = DateTime.Now,
-                    EventData = @event.EventData,
-                    EventId = Guid.NewGuid(),
-                    EventType = @event.EventType,
-                };
-                await dbContext.TblEvents.AddAsync(tblEvent);
+                await transaction.RollbackAsync();
+                throw;
             }
-            else
-            {
-                tblEvent = new TblEvent()
-                {
-                    StreamId = @event.StreamId,
-                    Version = latestVersionEvent.Version + 1,
-                    CreatedAt = DateTime.Now,
-                    EventData = @event.EventData,
-                    EventId = Guid.NewGuid(),
-                    EventType = @event.EventType,
-                };
-                await dbContext.TblEvents.AddAsync(tblEvent);
-            }
-
-            await dbContext.SaveChangesAsync();
         }
     }
 }

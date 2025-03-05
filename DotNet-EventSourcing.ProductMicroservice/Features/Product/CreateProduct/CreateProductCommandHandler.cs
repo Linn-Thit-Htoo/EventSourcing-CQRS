@@ -26,14 +26,14 @@ namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduc
         {
             Result<CreateProductResponse> result;
 
-            bool productDuplicate = await _productRepository
-                .GetByCondition(x => x.ProductName.ToLower().Trim().Contains(request.ProductName) && !x.IsDeleted)
-                .AnyAsync(cancellationToken);
-            if (productDuplicate)
-            {
-                result = Result<CreateProductResponse>.Duplicate("Product already exists.");
-                goto result;
-            }
+            //bool productDuplicate = await _productRepository
+            //    .GetByCondition(x => x.ProductName.ToLower().Trim().Contains(request.ProductName) && !x.IsDeleted)
+            //    .AnyAsync(cancellationToken);
+            //if (productDuplicate)
+            //{
+            //    result = Result<CreateProductResponse>.Duplicate("Product already exists.");
+            //    goto result;
+            //}
 
             var entity = request.ToEntity();
             await _productRepository.AddAsync(entity, cancellationToken);
