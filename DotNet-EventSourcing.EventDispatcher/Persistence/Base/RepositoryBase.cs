@@ -1,11 +1,12 @@
-﻿using DotNet_EventSourcing.EventDispatcher.Entities;
+﻿using System.Linq.Expressions;
+using DotNet_EventSourcing.EventDispatcher.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using System.Linq.Expressions;
 
 namespace DotNet_EventSourcing.EventDispatcher.Persistence.Base;
 
-public class RepositoryBase<T> : IRepositoryBase<T> where T : class
+public class RepositoryBase<T> : IRepositoryBase<T>
+    where T : class
 {
     private readonly AppDbContext _context;
     private readonly DbSet<T> _dbSet;
@@ -26,7 +27,11 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : class
         return _dbSet.Where(expression);
     }
 
-    public IQueryable<T> Query(Expression<Func<T, bool>> expression = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, Func<IQueryable<T>, IOrderedQueryable<T>> order = null)
+    public IQueryable<T> Query(
+        Expression<Func<T, bool>> expression = null,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>> order = null
+    )
     {
         IQueryable<T> query = _dbSet;
 
