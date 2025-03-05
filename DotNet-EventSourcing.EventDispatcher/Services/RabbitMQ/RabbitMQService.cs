@@ -1,4 +1,5 @@
-﻿using DotNet_EventSourcing.EventDispatcher.Configurations;
+﻿using System.Text;
+using DotNet_EventSourcing.EventDispatcher.Configurations;
 using DotNet_EventSourcing.EventDispatcher.Entities;
 using DotNet_EventSourcing.EventDispatcher.Events;
 using Microsoft.EntityFrameworkCore;
@@ -6,7 +7,6 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System.Text;
 
 namespace DotNet_EventSourcing.EventDispatcher.Services.RabbitMQ;
 
@@ -16,14 +16,18 @@ public class RabbitMQService : BackgroundService
     private readonly IServiceScopeFactory _serviceScopeFactory;
     private readonly ILogger<RabbitMQService> _logger;
 
-    public RabbitMQService(IOptions<AppSetting> options, IServiceScopeFactory serviceScopeFactory, ILogger<RabbitMQService> logger)
+    public RabbitMQService(
+        IOptions<AppSetting> options,
+        IServiceScopeFactory serviceScopeFactory,
+        ILogger<RabbitMQService> logger
+    )
     {
         _appSetting = options.Value;
         _serviceScopeFactory = serviceScopeFactory;
         _logger = logger;
     }
 
-    protected async override Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         IConnection connection = CreateConnection();
         var channel = connection.CreateModel();
@@ -78,8 +82,8 @@ public class RabbitMQService : BackgroundService
 
         try
         {
-            var eventStream = await dbContext.TblEventStreams
-                .Where(x => x.StreamId == @event.StreamId)
+            var eventStream = await dbContext
+                .TblEventStreams.Where(x => x.StreamId == @event.StreamId)
                 .SingleOrDefaultAsync();
 
             if (eventStream is null)
@@ -93,8 +97,8 @@ public class RabbitMQService : BackgroundService
                 await dbContext.TblEventStreams.AddAsync(tblEventStream);
             }
 
-            var latestVersionEvent = await dbContext.TblEvents
-                .OrderByDescending(x => x.Version)
+            var latestVersionEvent = await dbContext
+                .TblEvents.OrderByDescending(x => x.Version)
                 .FirstOrDefaultAsync();
             TblEvent tblEvent = new TblEvent();
 
