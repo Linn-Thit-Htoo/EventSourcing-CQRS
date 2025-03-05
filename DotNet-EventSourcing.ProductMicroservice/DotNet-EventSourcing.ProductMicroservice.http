@@ -1,0 +1,6 @@
+@DotNet_EventSourcing.ProductMicroservice_HostAddress = http://localhost:5113
+
+GET {{DotNet_EventSourcing.ProductMicroservice_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
