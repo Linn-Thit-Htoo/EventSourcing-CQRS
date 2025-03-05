@@ -1,7 +1,6 @@
 ﻿using DotNet_EventSourcing.EventDispatcher.Configurations;
 using DotNet_EventSourcing.EventDispatcher.Entities;
 using DotNet_EventSourcing.EventDispatcher.Events;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
