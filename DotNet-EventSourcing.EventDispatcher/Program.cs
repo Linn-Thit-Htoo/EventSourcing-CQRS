@@ -1,4 +1,6 @@
 
+using DotNet_EventSourcing.EventDispatcher.Dependencies;
+
 namespace DotNet_EventSourcing.EventDispatcher
 {
     public class Program
@@ -9,10 +11,11 @@ namespace DotNet_EventSourcing.EventDispatcher
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDependencies(builder);
 
             var app = builder.Build();
 
@@ -25,8 +28,9 @@ namespace DotNet_EventSourcing.EventDispatcher
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseHealthChecks("/health");
 
+            app.UseAuthorization();
 
             app.MapControllers();
 

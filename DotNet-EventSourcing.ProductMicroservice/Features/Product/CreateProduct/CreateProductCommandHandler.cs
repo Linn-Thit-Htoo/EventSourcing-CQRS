@@ -35,12 +35,16 @@ namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduc
                 goto result;
             }
 
-            await _productRepository.AddAsync(request.ToEntity(), cancellationToken);
+            var entity = request.ToEntity();
+            await _productRepository.AddAsync(entity, cancellationToken);
             await _productRepository.SaveChangesAsync(cancellationToken);
 
-            ProductCreatedEvent productCreatedEvent = new()
+            DomainEvent productCreatedEvent = new()
             {
-                EventData = JsonConvert.SerializeObject(request)
+                AggregateType = "Product",
+                EventType = "ProductCreated",
+                EventData = JsonConvert.SerializeObject(request),
+                StreamId = entity.ProductId
             };
             _bus.Send("DirectExchange", "EventQueue", "eventdirect", productCreatedEvent);
 

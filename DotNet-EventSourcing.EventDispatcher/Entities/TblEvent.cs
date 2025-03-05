@@ -5,7 +5,7 @@ namespace DotNet_EventSourcing.EventDispatcher.Entities;
 
 public partial class TblEvent
 {
-    public long EventId { get; set; }
+    public Guid EventId { get; set; }
 
     public Guid StreamId { get; set; }
 

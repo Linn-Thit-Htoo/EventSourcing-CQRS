@@ -713,10 +713,9 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("Tbl_Event");
 
-            entity.HasIndex(e => e.EventId, "Tbl_Event_EventId_key").IsUnique();
-
             entity.HasIndex(e => e.Version, "Tbl_Event_Version_key").IsUnique();
 
+            entity.Property(e => e.EventId).HasDefaultValueSql("gen_random_uuid()");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
                 .HasColumnType("timestamp without time zone");
