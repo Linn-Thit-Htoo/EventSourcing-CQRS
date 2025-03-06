@@ -6,7 +6,6 @@ using DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
 using DotNet_EventSourcing.ProductMicroservice.Utils;
 using MediatR;
 using Newtonsoft.Json;
-using System.Runtime.InteropServices;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct
 {
