@@ -1,7 +1,7 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Configurations;
+﻿using System.Text;
+using DotNet_EventSourcing.ProductMicroservice.Configurations;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using System.Text;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
 
