@@ -10,7 +10,10 @@ namespace DotNet_EventSourcing.ProductMicroservice.Dependencies;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddDependencies(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddDependencies(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
         builder
             .Configuration.SetBasePath(builder.Environment.ContentRootPath)
