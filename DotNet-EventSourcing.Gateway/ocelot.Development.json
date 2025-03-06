@@ -1,0 +1,19 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7141"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/gateway/Product/{everything}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Product/{everything}",
+      "DownstreamScheme": "https"
+    }
+  ]
+}
