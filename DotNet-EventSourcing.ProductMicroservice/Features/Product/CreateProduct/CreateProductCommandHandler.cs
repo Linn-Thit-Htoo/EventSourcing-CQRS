@@ -5,7 +5,6 @@ using DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
 using DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
 using DotNet_EventSourcing.ProductMicroservice.Utils;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
 
