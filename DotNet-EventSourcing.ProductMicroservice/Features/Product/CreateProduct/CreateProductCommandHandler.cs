@@ -9,7 +9,8 @@ using Newtonsoft.Json;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
 
-public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Result<CreateProductResponse>>
+public class CreateProductCommandHandler
+    : IRequestHandler<CreateProductCommand, Result<CreateProductResponse>>
 {
     private readonly IRepositoryBase<TblProduct> _productRepository;
     private readonly IBus _bus;
@@ -20,7 +21,10 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
         _bus = bus;
     }
 
-    public async Task<Result<CreateProductResponse>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    public async Task<Result<CreateProductResponse>> Handle(
+        CreateProductCommand request,
+        CancellationToken cancellationToken
+    )
     {
         Result<CreateProductResponse> result;
 
@@ -37,13 +41,14 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
         await _productRepository.AddAsync(entity, cancellationToken);
         await _productRepository.SaveChangesAsync(cancellationToken);
 
-        DomainEvent productCreatedEvent = new()
-        {
-            AggregateType = "Product",
-            EventType = "ProductCreated",
-            EventData = JsonConvert.SerializeObject(request),
-            StreamId = entity.ProductId
-        };
+        DomainEvent productCreatedEvent =
+            new()
+            {
+                AggregateType = "Product",
+                EventType = "ProductCreated",
+                EventData = JsonConvert.SerializeObject(request),
+                StreamId = entity.ProductId
+            };
         _bus.Send("DirectExchange", "EventQueue", "eventdirect", productCreatedEvent);
 
         result = Result<CreateProductResponse>.Success("Saving Product Successful.");
