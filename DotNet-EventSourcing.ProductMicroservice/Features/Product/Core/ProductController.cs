@@ -17,14 +17,20 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost("CreateProduct")]
-    public async Task<IActionResult> CreateProductAsync(CreateProductCommand command, CancellationToken cs)
+    public async Task<IActionResult> CreateProductAsync(
+        CreateProductCommand command,
+        CancellationToken cs
+    )
     {
         var result = await _sender.Send(command, cs);
         return Ok(result);
     }
 
     [HttpPut("UpdateBlog")]
-    public async Task<IActionResult> UpdateBlogAsync(UpdateProductCommand command, CancellationToken cs)
+    public async Task<IActionResult> UpdateBlogAsync(
+        UpdateProductCommand command,
+        CancellationToken cs
+    )
     {
         var result = await _sender.Send(command, cs);
         return Ok(result);
