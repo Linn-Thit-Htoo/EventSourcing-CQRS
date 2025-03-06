@@ -9,7 +9,8 @@ using Newtonsoft.Json;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
 
-public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, Result<UpdateProductResponse>>
+public class UpdateProductCommandHandler
+    : IRequestHandler<UpdateProductCommand, Result<UpdateProductResponse>>
 {
     private readonly IRepositoryBase<TblProduct> _productRepository;
     private readonly IBus _bus;
@@ -20,7 +21,10 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand,
         _bus = bus;
     }
 
-    public async Task<Result<UpdateProductResponse>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+    public async Task<Result<UpdateProductResponse>> Handle(
+        UpdateProductCommand request,
+        CancellationToken cancellationToken
+    )
     {
         Result<UpdateProductResponse> result;
         var transaction = await _productRepository.BeginTransactionAsync(cancellationToken);
@@ -42,18 +46,19 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand,
         await _productRepository.SaveChangesAsync(cancellationToken);
         await transaction.CommitAsync(cancellationToken);
 
-        DomainEvent domainEvent = new()
-        {
-            AggregateType = "Product",
-            EventType = "ProductUpdated",
-            EventData = JsonConvert.SerializeObject(request),
-            StreamId = request.ProductId
-        };
+        DomainEvent domainEvent =
+            new()
+            {
+                AggregateType = "Product",
+                EventType = "ProductUpdated",
+                EventData = JsonConvert.SerializeObject(request),
+                StreamId = request.ProductId
+            };
         _bus.Send("DirectExchange", "EventQueue", "eventdirect", domainEvent);
 
         result = Result<UpdateProductResponse>.Success();
 
-    result:
+        result:
         return result;
     }
 }
