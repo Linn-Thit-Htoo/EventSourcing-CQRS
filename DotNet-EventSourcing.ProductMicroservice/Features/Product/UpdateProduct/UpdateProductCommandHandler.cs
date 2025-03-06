@@ -58,7 +58,7 @@ public class UpdateProductCommandHandler
 
         result = Result<UpdateProductResponse>.Success();
 
-        result:
+    result:
         return result;
     }
 }
