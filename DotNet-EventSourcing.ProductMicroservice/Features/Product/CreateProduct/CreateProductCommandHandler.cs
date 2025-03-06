@@ -53,7 +53,7 @@ public class CreateProductCommandHandler
 
         result = Result<CreateProductResponse>.Success("Saving Product Successful.");
 
-        result:
+    result:
         return result;
     }
 }
