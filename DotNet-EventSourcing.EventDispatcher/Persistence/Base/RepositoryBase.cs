@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-
+﻿
 namespace DotNet_EventSourcing.EventDispatcher.Persistence.Base;
 
 public class RepositoryBase<T> : IRepositoryBase<T>
