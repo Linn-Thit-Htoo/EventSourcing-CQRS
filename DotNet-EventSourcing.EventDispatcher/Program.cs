@@ -1,5 +1,3 @@
-global using DotNet_EventSourcing.EventDispatcher.Dependencies;
-
 namespace DotNet_EventSourcing.EventDispatcher;
 
 public class Program
