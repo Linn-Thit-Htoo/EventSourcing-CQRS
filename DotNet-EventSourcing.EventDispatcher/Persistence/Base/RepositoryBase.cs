@@ -1,7 +1,6 @@
 ﻿using System.Linq.Expressions;
 using DotNet_EventSourcing.EventDispatcher.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace DotNet_EventSourcing.EventDispatcher.Persistence.Base;
 
