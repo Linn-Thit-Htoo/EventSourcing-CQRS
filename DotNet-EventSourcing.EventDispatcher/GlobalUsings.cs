@@ -5,3 +5,5 @@ global using DotNet_EventSourcing.EventDispatcher.Services.RabbitMQ;
 global using DotNet_EventSourcing.EventDispatcher.Utils;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
+global using System.Linq.Expressions;
+global using Microsoft.EntityFrameworkCore.Query;

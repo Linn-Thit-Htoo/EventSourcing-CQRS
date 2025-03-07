@@ -1,7 +1,4 @@
-﻿global using System.Linq.Expressions;
-global using Microsoft.EntityFrameworkCore.Query;
-
-namespace DotNet_EventSourcing.EventDispatcher.Persistence.Base;
+﻿namespace DotNet_EventSourcing.EventDispatcher.Persistence.Base;
 
 public interface IRepositoryBase<T>
     where T : class
