@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using DotNet_EventSourcing.EventDispatcher.Entities;
 
 namespace DotNet_EventSourcing.EventDispatcher.Persistence.Base;
 
