@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using DotNet_EventSourcing.EventDispatcher.Entities;
 using DotNet_EventSourcing.EventDispatcher.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
