@@ -1,6 +1,4 @@
-﻿global using System.Net;
-
-namespace DotNet_EventSourcing.EventDispatcher.Utils;
+﻿namespace DotNet_EventSourcing.EventDispatcher.Utils;
 
 public class Result<T>
 {
