@@ -1,11 +1,4 @@
-﻿global using System.Text;
-global using DotNet_EventSourcing.EventDispatcher.Events;
-global using Microsoft.Extensions.Options;
-global using Newtonsoft.Json;
-global using RabbitMQ.Client;
-global using RabbitMQ.Client.Events;
-
-namespace DotNet_EventSourcing.EventDispatcher.Services.RabbitMQ;
+﻿namespace DotNet_EventSourcing.EventDispatcher.Services.RabbitMQ;
 
 public class RabbitMQService : BackgroundService
 {
