@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using DotNet_EventSourcing.EventDispatcher.Events;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
