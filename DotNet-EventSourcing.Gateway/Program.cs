@@ -1,4 +1,3 @@
-
 using DotNet_EventSourcing.Gateway.Dependencies;
 using Ocelot.Middleware;
 
