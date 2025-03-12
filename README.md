@@ -1,6 +1,6 @@
 ## Event Sourcing with CQRS
 
-An architectural design pattern which records every changes in an append-only log instead of saving the latest state in the database. This approach is particularly useful for the applications which need a complete history of actions instead of the latest state. You can simply replay the events in order to view the initial state. There are multiple components of event sourcing.
+The Event Sourcing pattern defines an approach to handling operations on data that's driven by a sequence of events, each of which is recorded in an append-only store. This approach is particularly useful for the applications which need a complete history of actions instead of the latest state. By replaying events in chronological order, the system can reconstruct any past state, including the initial state. There are multiple components of event sourcing.
 
 1. Events
 
