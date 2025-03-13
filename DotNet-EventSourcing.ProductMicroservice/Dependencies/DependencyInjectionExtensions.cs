@@ -1,10 +1,10 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Configurations;
-using DotNet_EventSourcing.ProductMicroservice.Entities;
-using DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
-using DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
-using DotNet_EventSourcing.ProductMicroservice.Utils;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿global using DotNet_EventSourcing.ProductMicroservice.Configurations;
+global using DotNet_EventSourcing.ProductMicroservice.Entities;
+global using DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
+global using DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
+global using DotNet_EventSourcing.ProductMicroservice.Utils;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Dependencies;
 
