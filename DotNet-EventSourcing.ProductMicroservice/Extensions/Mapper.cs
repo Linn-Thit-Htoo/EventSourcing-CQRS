@@ -1,5 +1,4 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Entities;
-using DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
+﻿using DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Extensions;
 
