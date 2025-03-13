@@ -1,7 +1,4 @@
-﻿global using DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
-global using MediatR;
-
-namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.Core;
+﻿namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.Core;
 
 [Route("api/[controller]")]
 [ApiController]
