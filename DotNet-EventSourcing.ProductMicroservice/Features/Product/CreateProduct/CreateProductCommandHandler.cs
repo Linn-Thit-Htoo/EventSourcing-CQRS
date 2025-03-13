@@ -1,5 +1,4 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Entities;
-using DotNet_EventSourcing.ProductMicroservice.Events;
+﻿using DotNet_EventSourcing.ProductMicroservice.Events;
 using DotNet_EventSourcing.ProductMicroservice.Extensions;
 using DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
 using DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
