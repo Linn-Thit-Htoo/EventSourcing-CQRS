@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿global using System.Net;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Utils;
 
