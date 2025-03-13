@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
 
