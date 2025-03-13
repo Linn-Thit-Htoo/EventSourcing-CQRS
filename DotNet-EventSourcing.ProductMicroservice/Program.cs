@@ -1,4 +1,4 @@
-using DotNet_EventSourcing.ProductMicroservice.Dependencies;
+global using DotNet_EventSourcing.ProductMicroservice.Dependencies;
 
 namespace DotNet_EventSourcing.ProductMicroservice;
 
