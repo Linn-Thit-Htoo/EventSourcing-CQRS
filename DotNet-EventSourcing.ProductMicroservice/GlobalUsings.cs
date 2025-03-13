@@ -8,3 +8,6 @@ global using Microsoft.EntityFrameworkCore;
 global using DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
 global using DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
 global using MediatR;
+global using DotNet_EventSourcing.ProductMicroservice.Events;
+global using DotNet_EventSourcing.ProductMicroservice.Extensions;
+global using Newtonsoft.Json;
