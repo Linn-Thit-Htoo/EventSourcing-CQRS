@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-
+﻿
 namespace DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
 
 public class RepositoryBase<T> : IRepositoryBase<T>
