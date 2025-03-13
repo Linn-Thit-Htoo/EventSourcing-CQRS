@@ -1,6 +1,5 @@
 ﻿using DotNet_EventSourcing.ProductMicroservice.Events;
 using DotNet_EventSourcing.ProductMicroservice.Extensions;
-using MediatR;
 using Newtonsoft.Json;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
