@@ -1,6 +1,6 @@
-﻿using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore.Query;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿global using System.Linq.Expressions;
+global using Microsoft.EntityFrameworkCore.Query;
+global using Microsoft.EntityFrameworkCore.Storage;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
 
