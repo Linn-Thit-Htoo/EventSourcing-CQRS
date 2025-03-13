@@ -14,3 +14,5 @@ global using Newtonsoft.Json;
 global using System.Linq.Expressions;
 global using Microsoft.EntityFrameworkCore.Query;
 global using Microsoft.EntityFrameworkCore.Storage;
+global using System.Text;
+global using RabbitMQ.Client;

@@ -1,7 +1,4 @@
-﻿global using System.Text;
-global using RabbitMQ.Client;
-
-namespace DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
+﻿namespace DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
 
 public interface IBus
 {
