@@ -1,6 +1,5 @@
 ﻿using DotNet_EventSourcing.ProductMicroservice.Events;
 using DotNet_EventSourcing.ProductMicroservice.Extensions;
-using DotNet_EventSourcing.ProductMicroservice.Utils;
 using MediatR;
 using Newtonsoft.Json;
 
