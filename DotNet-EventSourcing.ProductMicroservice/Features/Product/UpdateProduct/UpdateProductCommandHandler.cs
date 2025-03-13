@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
