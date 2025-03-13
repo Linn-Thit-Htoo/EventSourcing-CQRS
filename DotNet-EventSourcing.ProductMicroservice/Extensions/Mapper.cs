@@ -1,6 +1,4 @@
-﻿global using DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
-
-namespace DotNet_EventSourcing.ProductMicroservice.Extensions;
+﻿namespace DotNet_EventSourcing.ProductMicroservice.Extensions;
 
 public static class Mapper
 {

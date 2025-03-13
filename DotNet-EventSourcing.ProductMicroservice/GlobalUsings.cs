@@ -5,3 +5,4 @@ global using DotNet_EventSourcing.ProductMicroservice.Services.RabbitMQ;
 global using DotNet_EventSourcing.ProductMicroservice.Utils;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
+global using DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
