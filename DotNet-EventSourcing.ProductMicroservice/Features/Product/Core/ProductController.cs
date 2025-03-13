@@ -1,5 +1,4 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
-using DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
+﻿using DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
