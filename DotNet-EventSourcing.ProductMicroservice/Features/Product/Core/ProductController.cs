@@ -1,5 +1,5 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
-using MediatR;
+﻿global using DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
+global using MediatR;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.Core;
 
