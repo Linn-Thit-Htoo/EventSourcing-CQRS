@@ -1,8 +1,4 @@
-﻿global using System.Linq.Expressions;
-global using Microsoft.EntityFrameworkCore.Query;
-global using Microsoft.EntityFrameworkCore.Storage;
-
-namespace DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
+﻿namespace DotNet_EventSourcing.ProductMicroservice.Persistence.Base;
 
 public interface IRepositoryBase<T>
     where T : class

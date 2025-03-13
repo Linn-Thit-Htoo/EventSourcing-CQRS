@@ -11,3 +11,6 @@ global using MediatR;
 global using DotNet_EventSourcing.ProductMicroservice.Events;
 global using DotNet_EventSourcing.ProductMicroservice.Extensions;
 global using Newtonsoft.Json;
+global using System.Linq.Expressions;
+global using Microsoft.EntityFrameworkCore.Query;
+global using Microsoft.EntityFrameworkCore.Storage;
