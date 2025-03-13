@@ -1,5 +1,4 @@
 ﻿using DotNet_EventSourcing.ProductMicroservice.Utils;
-using MediatR;
 
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.UpdateProduct;
 
