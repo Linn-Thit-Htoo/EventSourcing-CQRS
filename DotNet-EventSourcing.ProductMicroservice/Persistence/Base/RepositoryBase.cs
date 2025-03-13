@@ -1,5 +1,4 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage;
 
