@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using DotNet_EventSourcing.ProductMicroservice.Entities;
+﻿using DotNet_EventSourcing.ProductMicroservice.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage;
