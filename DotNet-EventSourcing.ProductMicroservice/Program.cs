@@ -1,5 +1,3 @@
-global using DotNet_EventSourcing.ProductMicroservice.Dependencies;
-
 namespace DotNet_EventSourcing.ProductMicroservice;
 
 public class Program
