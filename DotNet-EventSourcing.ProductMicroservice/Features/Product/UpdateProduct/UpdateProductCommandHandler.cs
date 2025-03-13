@@ -1,5 +1,4 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Utils;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
