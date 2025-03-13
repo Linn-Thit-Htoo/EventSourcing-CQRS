@@ -1,5 +1,4 @@
-﻿using DotNet_EventSourcing.ProductMicroservice.Utils;
-
+﻿
 namespace DotNet_EventSourcing.ProductMicroservice.Features.Product.CreateProduct;
 
 public class CreateProductCommand : IRequest<Result<CreateProductResponse>>
