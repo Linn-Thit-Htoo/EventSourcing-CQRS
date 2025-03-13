@@ -1,5 +1,4 @@
-﻿
-namespace DotNet_EventSourcing.ProductMicroservice.Entities;
+﻿namespace DotNet_EventSourcing.ProductMicroservice.Entities;
 
 public partial class AppDbContext : DbContext
 {
