@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using DotNet_EventSourcing.ProductMicroservice.Configurations;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
