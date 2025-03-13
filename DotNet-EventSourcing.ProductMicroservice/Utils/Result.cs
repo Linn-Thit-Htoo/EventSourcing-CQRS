@@ -1,6 +1,4 @@
-﻿global using System.Net;
-
-namespace DotNet_EventSourcing.ProductMicroservice.Utils;
+﻿namespace DotNet_EventSourcing.ProductMicroservice.Utils;
 
 public class Result<T>
 {
